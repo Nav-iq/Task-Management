@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border m-0 p-0;
+}
+
+html::-webkit-scrollbar {
+  @apply w-3;
+}
+
+html::-webkit-scrollbar-track {
+  @apply bg-bg;
+}
+
+html::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+}
+
+body {
+  @apply text-text max-w-[100dvw] overflow-x-hidden select-none m-auto;
+}
+
+@layer components {
+  .main-btn {
+    @apply w-full rounded-md bg-primary text-text py-3 px-4 font-[500] text-[16px] cursor-pointer text-center 
+      transition-all duration-200 ease-in shadow-3xl 
+      hover:brightness-110;
+    transform: perspective(1000px) translateZ(0);
+  }
+
+  .main-btn:disabled {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    cursor: not-allowed;
+  }
+
+  .main-btn:active {
+    animation: shadow-pulse 0.2s ease-in-out forwards;
+  }
+
+  @keyframes shadow-pulse {
+    from {
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    }
+
+    to {
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+  }
+
+  .input {
+    @apply w-full shadow-3xl p-4 rounded-md 
+    hover:outline-blue-500 active:outline-blue-500 focus:outline-blue-500;
+  }
+}
